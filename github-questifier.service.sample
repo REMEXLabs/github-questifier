@@ -1,0 +1,15 @@
+[Unit]
+Description=github-questifier service
+After=network.target
+
+[Service]
+Environment=NODE_PORT=3006
+Environment=GH_CLIENT_ID=XXX
+Environment=GH_SECRET=XXX
+Type=simple
+User=gpiiadmin
+ExecStart=/usr/bin/node /var/www/vhosts/gpii.eu/bubbles-questifier.gpii.eu/server/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
